@@ -45,8 +45,39 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
-  use "akinsho/bufferline.nvim"
+  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
+  use "onsails/lspkind-nvim"
+  -- auto-completion engine
+  use "hrsh7th/nvim-cmp"
+  -- nvim-cmp completion sources
+  use "hrsh7th/cmp-nvim-lsp" 
+  use {"hrsh7th/cmp-nvim-lua", after = "nvim-cmp"}
+  use {"hrsh7th/cmp-path", after = "nvim-cmp"}
+  use {"hrsh7th/cmp-buffer", after = "nvim-cmp"}
+  use "hrsh7th/cmp-cmdline"
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to us
+  -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
+  use "neovim/nvim-lspconfig"
+
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
