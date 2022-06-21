@@ -33,7 +33,9 @@ vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 
 vim.opt.shortmess:append "c"
-
+vim.cmd [[highlight SignColumn ctermbg=none]]
+vim.cmd [[highlight Pmenu ctermbg=Gray]]
+vim.cmd [[highlight PmenuSbar ctermbg=Grey]]
 vim.cmd [[set guicursor=n-v-c:hor50,i-ci-ve:ver25,r-cr:hor20,o:hor50]]
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
