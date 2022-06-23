@@ -23,7 +23,7 @@ vim.opt.writebackup = false                     -- if a file is being edited by 
 vim.opt.expandtab = true                        -- convert tabs to spaces
 vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
-vim.opt.cursorline = false                      -- highlight the current line
+vim.opt.cursorline = true                      -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
 vim.opt.relativenumber = true                   -- set relative numbered lines
 vim.opt.numberwidth = 4                         -- set number column width to 2 {default 4}
@@ -34,9 +34,13 @@ vim.opt.sidescrolloff = 8
 
 vim.opt.shortmess:append "c"
 vim.cmd [[highlight SignColumn ctermbg=none]]
-vim.cmd [[highlight Pmenu ctermbg=Gray]]
-vim.cmd [[highlight PmenuSbar ctermbg=Grey]]
 vim.cmd [[set guicursor=n-v-c:hor50,i-ci-ve:ver25,r-cr:hor20,o:hor50]]
+vim.cmd [[highlight VertSplit cterm=none]]
+vim.cmd [[highlight DiffAdd ctermbg=none ctermfg=green]]
+vim.cmd [[highlight DiffDelete ctermbg=none ctermfg=red]]
+vim.cmd [[highlight DiffChange ctermbg=none ctermfg=yellow]]
+vim.cmd [[highlight DiffText ctermbg=none]]
+vim.cmd [[highlight MatchParen ctermbg=none ctermfg=green]]
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work

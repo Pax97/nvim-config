@@ -106,5 +106,17 @@ require'lspconfig'.pyright.setup{
 }
 
 require'lspconfig'.tsserver.setup{
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = false
+  end
 }
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics, {
+		virtual_text = false,
+		underline = true,
+		signs = true,
+	}
+)
+

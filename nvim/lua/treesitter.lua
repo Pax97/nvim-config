@@ -11,3 +11,4 @@ configs.setup {
   },
   indent = { enable = true, disable = { "yaml" } },
 }
+require('nvim-ts-autotag').setup()
