@@ -41,6 +41,8 @@ vim.cmd [[highlight DiffDelete ctermbg=none ctermfg=red]]
 vim.cmd [[highlight DiffChange ctermbg=none ctermfg=yellow]]
 vim.cmd [[highlight DiffText ctermbg=none]]
 vim.cmd [[highlight MatchParen ctermbg=none ctermfg=green]]
-vim.cmd "set whichwrap+=<,>,[,],h,l"
+vim.cmd [[highlight Pmenu ctermbg=none ctermfg=white]]
+vim.cmd [[highlight PmeuSbar ctermbg=none]]
+vim.cmd "set whichwrap+=<,>,[,],h,l" 
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work

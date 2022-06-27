@@ -83,8 +83,7 @@ cmp.setup({
     documentation = cmp.config.window.bordered(),
   },
   experimental = {
-    ghost_text = true,
-    native_menu = false,
+   ghost_text = false,
   },
 })
 
@@ -99,16 +98,43 @@ for _, sign in ipairs(signs) do
   vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
-
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require'lspconfig'.pyright.setup{
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = function(client)
+    vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+      local opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+      }
+      vim.diagnostic.open_float(nil, opts)
+    end})
+  end
 }
 
 require'lspconfig'.tsserver.setup{
   capabilities = capabilities,
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
+    vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+      local opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ', 
+        scope = 'cursor',
+      }
+      vim.diagnostic.open_float(nil, opts)
+    end})
   end
 }
 
