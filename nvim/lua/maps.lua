@@ -61,3 +61,4 @@ keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<CR>", opts)
 
 -- Open telescope find_file
 keymap("n", "<S-f><S-f>", ":lua require('telescope.builtin').find_files()<CR>",  opts)
+keymap("n", "<S-f><S-b>", ":lua require('telescope.builtin').buffers()<CR>", opts)
