@@ -33,16 +33,16 @@ vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 
 vim.opt.shortmess:append "c"
-vim.cmd [[highlight SignColumn ctermbg=none]]
-vim.cmd [[set guicursor=n-v-c:hor50,i-ci-ve:ver25,r-cr:hor20,o:hor50]]
-vim.cmd [[highlight VertSplit cterm=none]]
-vim.cmd [[highlight DiffAdd ctermbg=none ctermfg=green]]
-vim.cmd [[highlight DiffDelete ctermbg=none ctermfg=red]]
-vim.cmd [[highlight DiffChange ctermbg=none ctermfg=yellow]]
-vim.cmd [[highlight DiffText ctermbg=none]]
-vim.cmd [[highlight MatchParen ctermbg=none ctermfg=green]]
-vim.cmd [[highlight Pmenu ctermbg=none ctermfg=white]]
-vim.cmd [[highlight PmeuSbar ctermbg=none]]
-vim.cmd "set whichwrap+=<,>,[,],h,l" 
+--vim.cmd [[highlight SignColumn ctermbg=none]]
+vim.cmd [[set guicursor=n-v-c:hor50,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor]]
+--vim.cmd [[highlight VertSplit cterm=none]]
+--vim.cmd [[highlight DiffAdd ctermbg=none ctermfg=green]]
+--vim.cmd [[highlight DiffDelete ctermbg=none ctermfg=red]]
+--vim.cmd [[highlight DiffChange ctermbg=none ctermfg=yellow]]
+--vim.cmd [[highlight DiffText ctermbg=none]]
+--vim.cmd [[highlight MatchParen ctermbg=none ctermfg=green]]
+--vim.cmd [[highlight Pmenu ctermbg=none ctermfg=white]]
+--vim.cmd [[highlight PmeuSbar ctermbg=none]]
+vim.cmd [[set whichwrap+=<,>,[,],h,l]] 
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
