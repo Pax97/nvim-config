@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "kyazdani42/nvim-web-devicons"
   use "moll/vim-bbye"
+  use "lukas-reineke/indent-blankline.nvim"
   use "lewis6991/gitsigns.nvim"
   use {
 	  "windwp/nvim-autopairs",
@@ -90,6 +91,12 @@ return packer.startup(function(use)
 
   use 'navarasu/onedark.nvim'
 
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  
+  use {"akinsho/toggleterm.nvim", tag = 'v1.*'}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

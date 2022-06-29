@@ -57,3 +57,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Formating null-ls
 keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<CR>", opts)
+
+
+-- Open telescope find_file
+keymap("n", "<S-f><S-f>", ":lua require('telescope.builtin').find_files()<CR>",  opts)
