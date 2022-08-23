@@ -1,4 +1,4 @@
-# nvim-config
+# Pax97 - Neovim Config
 # Requirement
 nvim >= 0.7
 # Package 

@@ -52,7 +52,7 @@ return packer.startup(function(use)
 	  "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
-  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+  use {'akinsho/bufferline.nvim', tag = "v2.4.0", requires = 'kyazdani42/nvim-web-devicons'}
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
