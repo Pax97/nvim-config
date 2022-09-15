@@ -60,12 +60,12 @@ install_third_party(){
 
 install_nvim_config(){
   OS_TYPE=$(dpkg --print-architecture)
+  echo -e ${Green}Detect your CPU is $OS_TYPE ${Reset}
   case $OS_TYPE in
-	  amd64 ) echo amd64 format;
-		  sudo apt install --yes curl;
-		  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb;
+	  amd64 ) sudo apt install --yes curl;
+		  sudo curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb;
 		  sudo apt install ./nvim-linux64.deb;
-		  mkdir ~/.config;
+		  mkdir -p ~/.config;
 		  cp -r nvim ~/.config/nvim;
       echo "Install Complete!"
 		  ;;
