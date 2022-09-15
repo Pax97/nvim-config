@@ -13,6 +13,7 @@ echo "Checking requirement..."
 sleep 1
 checking_pakage_installed()
 {
+  echo -e ${Yellow}+  Checking Requirement  +${Reset};
   REQUIRED_PKG=$1
   PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG 2> /dev/null|grep "install ok installed")
   if [ "install ok installed" = "$PKG_OK" ]; then
@@ -25,7 +26,6 @@ checking_pakage_installed()
 checking_pakage_installed python3
 checking_pakage_installed python3-pip
 checking_pakage_installed nodejs
-echo Lost package : ${PKG_NEEDED[*]}
 
 install_lost_package(){
   echo ${PKG_NEEDED[*]}
@@ -33,19 +33,19 @@ install_lost_package(){
   do
 	case $i in
 	    python3 ) 
-		echo -e ${Yellow}Install python3${Reset};
-		sudo apt install --yes python3;
-		;;
-	    python3-pip ) 
-		echo -e ${Yellow}Install PIP${Reset};
-		sudo apt install --yes python3-pip
-		;;
+          echo -e ${Yellow}+    Install python3    +${Reset};
+		      sudo apt install --yes python3;
+		            ;;
+	    python3-pip )
+          echo -e ${Yellow}+    Install PIP    +${Reset};
+		      sudo apt install --yes python3-pip
+		            ;;
 	    nodejs ) 
-		echo -e ${Yellow}Insatll NodeJS${Reset};
-		sudo apt install --yes curl;
-		curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -;
-		sudo apt-get install -y nodejs;
-		;;
+          echo -e ${Yellow}+    Install Node-JS    +${Reset};
+		      sudo apt install --yes curl;
+		      curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -;
+		      sudo apt-get install -y nodejs;
+		            ;;
 
 	esac
   done
@@ -67,14 +67,16 @@ install_nvim_config(){
 		  sudo apt install ./nvim-linux64.deb;
 		  mkdir -p ~/.config;
 		  cp -r nvim ~/.config/nvim;
-      		  echo "Install Complete!"
+      echo "Install Complete!"
 		  ;;
 	  arm64 ) sudo apt update;
-		  sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen;
-		  sudo curl -LO https://github.com/neovim/neovim/archive/refs/tags/v0.7.2.zip;
-		  unzip v0.7.2.zip;
-		  cd neovim-0.7.2 && make CMAKE_BUILD_TYPE=RelWithDebInfo;
+		  sudo apt-get install --yes ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen;
+		  git clone https://github.com/neovim/neovim;
+		  cd neovim && git checkout stable;
+		  make CMAKE_BUILD_TYPE=Release;
 		  sudo make install;
+		  mkdir -p ~/.config;
+		  cd .. && cp -r nvim ~/.config/nvim;
 		  echo "Install Complete!"
 		  ;;
   esac
