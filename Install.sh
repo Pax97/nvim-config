@@ -67,9 +67,15 @@ install_nvim_config(){
 		  sudo apt install ./nvim-linux64.deb;
 		  mkdir -p ~/.config;
 		  cp -r nvim ~/.config/nvim;
-      echo "Install Complete!"
+      		  echo "Install Complete!"
 		  ;;
-	  arm64 ) echo arm64 format;
+	  arm64 ) sudo apt update;
+		  sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen;
+		  sudo curl -LO https://github.com/neovim/neovim/archive/refs/tags/v0.7.2.zip;
+		  unzip v0.7.2.zip;
+		  cd neovim-0.7.2 && make CMAKE_BUILD_TYPE=RelWithDebInfo;
+		  sudo make install;
+		  echo "Install Complete!"
 		  ;;
   esac
 }
