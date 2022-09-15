@@ -1,6 +1,11 @@
 # Pax97 - Neovim Config
-# Requirement
-nvim >= 0.7
-# Package 
-- NodeJS ( typescripr-language-server, pyright, neovim, prettier)
-- Python PIP ( autopep8 )
+
+## Installation
+
+sh
+git clone https://github.com/Pax97/nvim-config
+cd nvim-config
+./Install.sh
+
+
+> Ready On: `Ubuntu 22.04 LTS`
