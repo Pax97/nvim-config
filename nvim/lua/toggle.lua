@@ -4,7 +4,13 @@ if not status_ok then
 end
 
 toggleterm.setup({
-	size = 20,
+  size = function(term)
+    if term.direction == "horizontal" then
+      return 15
+    elseif term.direction == "vertical" then
+      return 50
+    end
+  end, 
 	open_mapping = [[<c-t>]],
 	hide_numbers = true,
 	shade_filetypes = {},
@@ -25,3 +31,4 @@ toggleterm.setup({
 		},
 	},
 })
+

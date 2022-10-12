@@ -121,7 +121,7 @@ require'lspconfig'.pyright.setup{
 require'lspconfig'.tsserver.setup{
   capabilities = capabilities,
   on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
     vim.api.nvim_create_autocmd("CursorHold", {
     buffer = bufnr,
     callback = function()

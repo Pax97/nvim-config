@@ -37,10 +37,6 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-w>", ":Bdelete<CR>", opts)
 
--- Insert --
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -54,11 +50,15 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
+keymap("t", "<ESC>", "<Cmd>execute v:count . 'ToggleTerm'<CR>", term_opts)
 -- Formating null-ls
-keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<CR>", opts)
+keymap("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>", opts)
 
 
 -- Open telescope find_file
 keymap("n", "<S-f><S-f>", ":lua require('telescope.builtin').find_files()<CR>",  opts)
 keymap("n", "<S-f><S-b>", ":lua require('telescope.builtin').buffers()<CR>", opts)
+
+-- Python Running
+keymap("n", "<F9>", ":w | TermExec cmd='python3 %'<CR>", opts)
+

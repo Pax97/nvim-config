@@ -96,7 +96,7 @@ return packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   
-  use {"akinsho/toggleterm.nvim", tag = 'v1.*'}
+  use {"akinsho/toggleterm.nvim"}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
