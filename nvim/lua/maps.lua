@@ -62,3 +62,11 @@ keymap("n", "<S-f><S-b>", ":lua require('telescope.builtin').buffers()<CR>", opt
 -- Python Running
 keymap("n", "<F9>", ":w | TermExec cmd='python3 %'<CR>", opts)
 
+-- hlSlens
+keymap('n', 'n',[[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],opts)
+keymap('n', 'N',[[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],opts)
+keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap('n', '<Leader>l', ':noh<CR>', opts)
