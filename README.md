@@ -8,4 +8,4 @@ cd nvim-config
 ./Install.sh
 ```
 
-> Ready On: `Ubuntu 22.04 LTS`
+> Ready On: `Ubuntu 22.04 LTS` `Mac OS 13`
