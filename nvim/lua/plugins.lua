@@ -52,7 +52,7 @@ return packer.startup(function(use)
 	  "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
-  use {'akinsho/bufferline.nvim', tag = "v2.4.0", requires = 'kyazdani42/nvim-web-devicons'}
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'kyazdani42/nvim-web-devicons'}
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -100,7 +100,16 @@ return packer.startup(function(use)
 
   use{"petertriho/nvim-scrollbar"}
 
-  use{"kevinhwang91/nvim-hlslens"}
+  use{"kevinhwang91/nvim-hlslens",
+    config = function() require("hlslens").setup {} end
+  }
+
+  use {
+    "SmiteshP/nvim-gps",
+    requires = "nvim-treesitter/nvim-treesitter"
+  }
+
+  use { 'fgheng/winbar.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
