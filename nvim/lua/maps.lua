@@ -58,6 +58,7 @@ keymap("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>", opts)
 -- Open telescope find_file
 keymap("n", "<S-f><S-f>", ":lua require('telescope.builtin').find_files()<CR>",  opts)
 keymap("n", "<S-f><S-b>", ":lua require('telescope.builtin').buffers()<CR>", opts)
+keymap("n", "<S-f><S-g>", ":lua require('telescope.builtin').live_grep()<CR>", opts)
 
 -- Python Running
 keymap("n", "<F9>", ":w | TermExec cmd='python3 %'<CR>", opts)
