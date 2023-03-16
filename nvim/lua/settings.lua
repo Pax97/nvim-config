@@ -31,7 +31,8 @@ vim.opt.signcolumn = "yes"                      -- always show the sign column, 
 vim.opt.wrap = true                            -- display lines as one long line
 vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
-
+vim.opt.list = true
+vim.opt.listchars:append "eol:﬋"
 vim.opt.shortmess:append "c"
 --vim.cmd [[highlight SignColumn ctermbg=none]]
 vim.cmd [[set guicursor=n-v-c:hor50,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor]]
